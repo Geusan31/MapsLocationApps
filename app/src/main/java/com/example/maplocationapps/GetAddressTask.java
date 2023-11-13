@@ -37,7 +37,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
         } else {
             Address address = addresses.get(0);
             ArrayList<String> addressParts = new ArrayList<>();
-            for (int i = 0; i < address.getMaxAddressLineIndex(); i++) {
+            for (int i = 0; i <= address.getMaxAddressLineIndex(); i++) {
                 addressParts.add(address.getAddressLine(i));
             }
 
