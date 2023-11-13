@@ -18,7 +18,6 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
     public GetAddressTask(Context context, OnTaskCompleted listener) {
         mContext = context;
         mListener = listener;
-
     }
 
     @Override
@@ -45,6 +44,12 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
             result = TextUtils.join("\n", addressParts);
         }
         return result;
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        mListener.onTaskCompleted(s);
+        super.onPostExecute(s);
     }
 
     interface OnTaskCompleted {
